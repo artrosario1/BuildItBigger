@@ -11,8 +11,8 @@ public class JokesLib {
                     "A: An extroverted computer scientist looks at your shoes when he talks to you."
     };
     public String tellAHandCraftedJoke(){
-           // return jokesArray[new Random().nextInt(jokesArray.length)];
-            return "A hand-crafted joke";
+           return jokesArray[new Random().nextInt(jokesArray.length)];
+            //return "A hand-crafted joke";
         }
 
 }

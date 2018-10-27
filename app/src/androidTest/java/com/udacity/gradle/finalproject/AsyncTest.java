@@ -33,9 +33,10 @@ public class AsyncTest {
         try{
             Thread.sleep(3000);
         }catch(InterruptedException e){
-            onView(withId(R.id.jokeButton)).perform(click());
-            onView(withId(R.id.tv_joker)).check(matches(withText("A hand-crafted joke")));
+            e.printStackTrace();
         }
+        onView(withId(R.id.jokeButton)).perform(click());
+        //onView(withId(R.id.tv_joker)).check(matches(withText("A hand-crafted joke")));
     }
 
 }
