@@ -6,6 +6,7 @@ import android.support.test.runner.AndroidJUnit4;
 import android.support.test.espresso.Espresso;
 
 import com.softcap.artrosario.mylibrary.JokerActivity;
+import com.udacity.gradle.builditbigger.MainActivity;
 import com.udacity.gradle.builditbigger.R;
 
 import static android.support.test.espresso.Espresso.onView;
@@ -25,15 +26,16 @@ import org.junit.runner.RunWith;
 public class AsyncTest {
 
     @Rule
-    public ActivityTestRule<JokerActivity> mActivityRule = new ActivityTestRule<>(JokerActivity.class);
+    public ActivityTestRule<MainActivity> mActivityRule = new ActivityTestRule<>(MainActivity.class);
 
     @Test
     public void jokeButtonisClicked(){
-        onView(withId(R.id.jokeButton)).perform(click());
+        try{
+            Thread.sleep(3000);
+        }catch(InterruptedException e){
+            onView(withId(R.id.jokeButton)).perform(click());
+            onView(withId(R.id.tv_joker)).check(matches(withText("A hand-crafted joke")));
+        }
     }
-    @Test
-    public void jokeTextViewisMatched(){
-        jokeButtonisClicked();
-        onView(withId(R.id.tv_joker)).check(matches(withText("A hand-crafted joke")));
-    }
+
 }
